@@ -1,0 +1,7 @@
+{
+    "circleci.persistedProjectSelection": [
+        "gh/IsaacAM50/kc-hello-world"
+    ],
+    "circleci.filters.branchFilter": "allBranches",
+    "circleci.filters.myPipelinesOnly": false
+}
