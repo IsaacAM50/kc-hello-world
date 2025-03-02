@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@2.0.0
+
 jobs:
   test:
     working_directory: ~/repo
@@ -27,6 +30,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_test_results:
           path: test-results.xml
+      - sonarcloud/scan
       - persist_to_workspace:
           root: ~/repo
           paths: .
@@ -36,5 +40,5 @@ workflows:
   test:
     jobs:
       - test:
-          context: dev
+          context: SonarCloud
           
