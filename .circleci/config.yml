@@ -64,8 +64,12 @@ jobs:
 
             
 workflows:
-  test:
+  test-and-deploy:
     jobs:
       - test:
           context: SonarCloud
+      - deploy:
+          context: SonarCloud
+          requires:
+            - test
           
